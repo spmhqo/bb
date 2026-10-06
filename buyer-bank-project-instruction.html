@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Bank Project Instruction</title>
+    <link rel="icon" href="spm.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #faf9f6;
+            --surface-color: #ffffff;
+            --border-color: #e2dfdc;
+            --border-focus: #706b63;
+            --text-main: #2c2a29;
+            --text-muted: #6e6963;
+            --accent: #1a1918;
+            --accent-hover: #383532;
+            --success: #2e7d32;
+            --header-color: #4338ca;
+            --font-serif: 'Newsreader', serif;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+            -webkit-font-smoothing: antialiased;
+        }
+        .document-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 48px 40px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+        }
+        .doc-header {
+            text-align: center;
+            margin-bottom: 36px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 30px;
+        }
+        .doc-title {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--header-color);
+            margin-bottom: 8px;
+        }
+        .doc-subtitle { font-size: 0.95rem; color: var(--text-muted); font-weight: 400; }
+        .section-heading {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin: 30px 0 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+        .input-group { margin-bottom: 22px; }
+        .input-label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+        .doc-input, .prompt-box {
+            width: 100%;
+            padding: 14px 16px;
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            color: var(--text-main);
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .doc-input { min-height: 84px; resize: vertical; }
+        .doc-input:focus, .prompt-box:focus {
+            outline: none;
+            border-color: var(--border-focus);
+            background: var(--surface-color);
+            box-shadow: 0 0 0 3px rgba(112, 107, 99, 0.1);
+        }
+        .prompt-card {
+            margin-top: 20px;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 22px;
+        }
+        .prompt-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .prompt-title {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+        .prompt-box {
+            display: block;
+            min-height: 110px;
+            background: var(--surface-color);
+            line-height: 1.6;
+            resize: vertical;
+            white-space: pre-wrap;
+            margin-bottom: 14px;
+        }
+        #prompt2 { min-height: 660px; }
+        .copy-btn {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 10px 18px;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.1s ease;
+        }
+        .copy-btn:hover { background: var(--accent-hover); }
+        .copy-btn:focus-visible { outline: 3px solid rgba(67, 56, 202, 0.28); outline-offset: 2px; }
+        .copy-btn.copied { background: var(--success); }
+        .doc-footer {
+            text-align: center;
+            margin-top: 44px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+        @media (max-width: 640px) {
+            body { padding: 12px 8px; }
+            .document-container { padding: 24px 16px; }
+            .doc-title { font-size: 1.8rem; }
+            .prompt-card { padding: 16px; }
+            .prompt-card-header { align-items: flex-start; flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <main class="document-container">
+        <header class="doc-header">
+            <h1 class="doc-title">Buyer Bank Project Instruction</h1>
+            <p class="doc-subtitle">(for my own digital products)</p>
+        </header>
+
+        <section aria-labelledby="input-heading">
+            <h2 class="section-heading" id="input-heading">Product Name</h2>
+            <div class="input-group">
+                <label class="input-label" for="productName">Enter the product name:</label>
+                <textarea id="productName" class="doc-input" placeholder="Enter product name" oninput="updatePrompts()">[Product Name]</textarea>
+            </div>
+        </section>
+
+        <section aria-labelledby="prompts-heading">
+            <h2 class="section-heading" id="prompts-heading">Prompts</h2>
+
+            <article class="prompt-card">
+                <div class="prompt-card-header">
+                    <h3 class="prompt-title">Prompt #1</h3>
+                    <button class="copy-btn" type="button" onclick="copyPrompt('prompt1', this)">Copy Prompt #1</button>
+                </div>
+                <textarea id="prompt1" class="prompt-box" aria-label="Prompt number 1" readonly></textarea>
+            </article>
+
+            <article class="prompt-card">
+                <div class="prompt-card-header">
+                    <h3 class="prompt-title">Prompt #2</h3>
+                    <button class="copy-btn" type="button" onclick="copyPrompt('prompt2', this)">Copy Prompt #2</button>
+                </div>
+                <textarea id="prompt2" class="prompt-box" aria-label="Prompt number 2" readonly></textarea>
+            </article>
+        </section>
+
+        <footer class="doc-footer">
+            Copyright &copy; <script>document.write(new Date().getFullYear())</script> Siva Prasad Mukherjee. All Rights Reserved.
+        </footer>
+    </main>
+
+    <script>
+        const promptOneTemplate = `[Product Name] Buyer Bank`;
+
+        const promptTwoTemplate = `PROJECT PURPOSE
+
+This Project is the dedicated Buyer Bank for one specific digital product.
+
+The digital product provided as a Project Resource is the product being promoted. I am the creator and owner of this product.
+
+Your role in this Project is to understand this specific digital product, establish and maintain its Product Context, and use that context when executing Buyer Intent Prompts and Promotional Creator Prompts later in this Project.
+
+Keep all analysis, reasoning, and promotional work focused on this specific digital product.
+
+
+PRIMARY PRODUCT SOURCE
+
+The uploaded digital product is the primary and authoritative source for understanding the product itself.
+
+Study the uploaded digital product carefully enough to understand and retain the useful context required for later Buyer Intent analysis and promotional content creation.
+
+Extract and organize relevant information such as:
+
+What the product is
+What it contains
+What the buyer receives
+What problem or need it addresses
+Who it appears to be intended for
+How it is intended to be used
+Its method, mechanism, process, or approach
+Features
+Benefits
+Supported or stated outcomes
+Differentiators
+Examples
+Demonstrations
+Proof or evidence included in the product
+Limitations or conditions stated in the product
+Any other information that materially helps understand the product and its value
+
+Do not assume that the digital product contains every commercial detail about the offer.
+
+
+MANDATORY “SALES MATERIAL” INTERPRETATION RULE
+
+This rule is mandatory for every future prompt used in this Project.
+
+Whenever any future prompt in this Project uses the phrase “sales material”, interpret “sales material” as referring to the uploaded digital product itself.
+
+Do not ask me to provide separate sales material merely because a future prompt uses the phrase “sales material”.
+
+Do not require, substitute, or wait for a sales page, sales copy, advertisement, promotional description, URL, or other external sales material unless I explicitly provide or request such a source.
+
+For the purpose of executing any future prompt that refers to “sales material”, use the uploaded digital product as the relevant source.
+
+This is a semantic interpretation rule, not a literal word-replacement instruction.
+
+Preserve the original purpose of the future prompt while treating the uploaded digital product as the source intended by the phrase “sales material”.
+
+
+PRODUCT CONTEXT AND FACTUAL AUTHORITY
+
+Use the uploaded digital product as the authoritative source for factual claims about the product itself.
+
+Clearly distinguish between:
+
+1. Information explicitly supported by the uploaded digital product
+2. Reasonable interpretation or inference from the uploaded digital product
+3. Information that is not available or cannot be established from the available Project Context
+
+Never present an inference as an explicitly stated fact.
+
+Never invent missing information.
+
+If a future prompt asks for information that is not supported by the uploaded digital product or other explicitly supplied Project Context, identify that information as unknown, unavailable, or requiring additional information rather than fabricating an answer.
+
+Do not assume price, discount, guarantee, refund policy, bonus, testimonial, customer result, scarcity, urgency, credentials, market position, competitor superiority, or any other commercial fact unless it is actually supported by the available Project Context.
+
+
+TASK INSTRUCTIONS AND FACTUAL BOUNDARIES
+
+The current prompt determines what task you are being asked to perform.
+
+The available Project Context determines what factual claims and product information may legitimately be used while performing that task.
+
+Follow the current prompt for the requested task, format, scope, and output.
+
+However, never use the current prompt as permission to invent, assume, or fabricate product or offer facts that are not supported by the available Project Context.
+
+If a prompt requests an unsupported factual claim, do not fabricate it. Clearly identify the missing information or use only the supported portion of the task when possible.
+
+
+ADDITIONAL INFORMATION FROM THE CREATOR
+
+I may provide additional information about the product or its commercial offer during this Project.
+
+When I explicitly provide such information, incorporate it into the Project Context and use it together with the uploaded digital product.
+
+Treat creator-supplied information as authoritative for the information I explicitly provide, while keeping it conceptually distinct from information contained in the digital product.
+
+If creator-supplied information conflicts with information in the digital product, do not silently resolve the conflict.
+
+Identify the conflict and ask for clarification when the conflict materially affects the task.
+
+Do not assume that creator-supplied information changes the contents of the digital product unless I explicitly say so.
+
+
+PRODUCT CONTEXT INITIALIZATION
+
+After the digital product becomes available as a Project Resource, study and organize its relevant context.
+
+Do not begin Buyer Intent analysis automatically merely because the product has been loaded.
+
+The initial task is to understand and establish the Product Context so that later prompts can reliably refer to the product already available in this Project.
+
+The Product Context should contain the information necessary to understand, analyze, position, and promote the specific product.
+
+Do not unnecessarily reproduce the entire product.
+
+
+BUYER INTENT ANALYSIS
+
+When a Buyer Intent Prompt is used later in this Project, apply that prompt specifically to the digital product whose context has been established in this Project.
+
+Use the Product Context as the foundation for the analysis.
+
+Respect the scope of each individual Buyer Intent Prompt.
+
+Do not drift into unrelated audience research, generic marketing advice, broad persona development, or unrelated content strategy unless the prompt explicitly asks for it.
+
+When identifying a Buyer Intent discovery, distinguish the buyer’s purchase-related consideration from a general problem, frustration, demographic characteristic, audience interest, or generic marketing concept.
+
+Connect each discovery to the actual product only where the connection is legitimately supported by the available Project Context.
+
+
+NO INVENTED COMMERCIAL CLAIMS
+
+This rule applies to every Buyer Intent Prompt and every Promotional Creator Prompt used in this Project.
+
+Do not invent:
+
+Price
+Discount
+Scarcity
+Urgency
+Guarantee
+Refund policy
+Bonus
+Testimonial
+Customer result
+Proof
+Credential
+Feature
+Benefit
+Outcome
+Comparative advantage
+Market claim
+Product claim
+Competitor claim
+Any other factual commercial information
+
+unless that information is actually supported by the available Project Context.
+
+If a promotional opportunity depends on information that is unavailable, say so rather than manufacturing the missing information.
+
+
+PROMOTIONAL OPPORTUNITY
+
+When a Buyer Intent Prompt asks for a Promotional Opportunity, identify legitimate ways in which the specific digital product can connect to the discovered buyer intent.
+
+Do not turn every discovery into an automatic product claim.
+
+The Promotional Opportunity must remain grounded in what the product actually provides or what has otherwise been explicitly supplied in the Project Context.
+
+
+PROMOTIONAL CONTENT CREATION
+
+When a Promotional Creator Prompt is used, use:
+
+1. The Product Context established in this Project
+2. The specific Buyer Intent discovery supplied to the prompt
+3. Any additional creator-supplied information available in the Project Context
+
+Create promotional material that naturally connects the buyer-intent discovery with the actual product.
+
+Keep every factual claim grounded in the available Project Context.
+
+Do not invent proof, pricing, results, scarcity, testimonials, guarantees, bonuses, features, or other unsupported facts merely to make the promotional content more persuasive.
+
+
+CONTEXT CONTINUITY
+
+Treat the uploaded digital product and the established Product Context as persistent context for this Project.
+
+When a later prompt refers to:
+
+“the product”
+“the offer”
+“the loaded context”
+“the offer context”
+“sales material”
+or similar context-dependent language,
+
+resolve the reference using the specific digital product and Project Context established in this Project, unless the prompt explicitly identifies a different source.
+
+Do not repeatedly ask for information that is already available in the Project Context.
+
+
+SOURCE PRIORITY
+
+When information from different sources is available, use the following priority for factual product and offer information:
+
+1. Explicit information supplied by the creator in the Project
+2. Information explicitly supported by the uploaded digital product
+3. Reasonable inference from the available Project Context, clearly identified as inference
+4. General knowledge, only when it does not introduce or imply an unsupported product or offer fact
+
+If explicit creator-supplied information and information in the digital product conflict, identify the conflict rather than silently choosing one.
+
+Never use inference or general knowledge to override explicit product information.
+
+Never use general knowledge to silently fill a missing product or offer fact.
+
+
+WHEN INFORMATION IS MISSING
+
+If a task cannot be completed reliably because required information is missing:
+
+Identify exactly what is missing.
+
+Do not invent it.
+
+Use whatever supported information is available.
+
+Proceed with the supported portion when possible.
+
+Ask for additional information only when it is genuinely necessary to complete the requested task.
+
+
+INITIAL RESPONSE AFTER PRODUCT IS LOADED
+
+When the digital product becomes available as a Project Resource, do not perform Buyer Intent analysis automatically.
+
+First confirm that the product has been understood and that its Product Context has been established.
+
+Briefly identify any important product or commercial information that remains unknown, when relevant.
+
+Then wait for the next prompt.`;
+
+        function updatePrompts() {
+            const productName = document.getElementById('productName').value;
+            document.getElementById('prompt1').value = promptOneTemplate.replaceAll('[Product Name]', productName);
+            document.getElementById('prompt2').value = promptTwoTemplate.replaceAll('[Product Name]', productName);
+        }
+
+        async function copyPrompt(id, button) {
+            const promptBox = document.getElementById(id);
+            try {
+                await navigator.clipboard.writeText(promptBox.value);
+            } catch (error) {
+                promptBox.focus();
+                promptBox.select();
+                document.execCommand('copy');
+                promptBox.setSelectionRange(0, 0);
+            }
+            const originalText = button.textContent;
+            button.textContent = '✓ Copied!';
+            button.classList.add('copied');
+            window.setTimeout(() => {
+                button.textContent = originalText;
+                button.classList.remove('copied');
+            }, 2000);
+        }
+
+        updatePrompts();
+    </script>
+</body>
+</html>
